@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 
-const api = 'https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api'
 
-const Books = () => {
+
+const Books = ({ api }) => {
 
   const [books, setBooks] = useState([])
 

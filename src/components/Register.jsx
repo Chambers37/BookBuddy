@@ -1,16 +1,36 @@
 import { useState } from "react"
 
 
-const Register = () => {
-  const [username, setUsername] = useState('');
+const Register = ({ api, setToken }) => {
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [newUser, setNewUser] = useState({});
 
-  const handleSubmit = (submit) => {
+  const handleSubmit = async (submit) => {
     submit.preventDefault();
-    
-    console.log(`Form Submitted: 
-      Username: ${username}
-      Password : ${password}`)
+
+      try {
+        const response = await fetch(`${api}/users/register`, {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            firstname: firstname,
+            lastname: lastname,
+            email: email,
+            password: password
+          })
+        })
+        const postResponse = await response.json()
+        setNewUser(postResponse)
+        setToken(postResponse.token)
+        
+      } catch (error) {
+        console.log(error.message)
+      }
     
   }
 
@@ -19,14 +39,39 @@ const Register = () => {
     <>
     <h1>Register</h1>
       <form onSubmit={handleSubmit}>
-        <label>
-          Username: 
+      <label>
+          First name: 
           <input 
-          value={username} 
-          placeholder="Enter Username Here" 
+          value={firstname} 
+          placeholder="Enter Fist Name Here" 
           required 
           onChange={(e) => {
-            setUsername(e.target.value)
+            setFirstname(e.target.value)
+          }}
+          >
+          </input>
+        </label> <br />
+        <label>
+          Last name: 
+          <input 
+          value={lastname} 
+          placeholder="Enter Last Name Here" 
+          required 
+          onChange={(e) => {
+            setLastname(e.target.value)
+          }}
+          >
+          </input>
+        </label> <br />
+        <label>
+          Email: 
+          <input 
+          value={email} 
+          placeholder="Enter Email Here" 
+          type="email"
+          required 
+          onChange={(e) => {
+            setEmail(e.target.value)
           }}
           >
           </input>
@@ -45,7 +90,7 @@ const Register = () => {
           </input>
         </label> <br />
         <button type="submit">Register</button> 
-      </form>
+      </form>   
     </>
   )
 }

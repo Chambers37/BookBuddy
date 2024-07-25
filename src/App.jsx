@@ -5,8 +5,13 @@ import Register from "./components/Register"
 import Account from "./components/Account"
 // import BookDetails from "./components/BookDetails"
 import { Route, Routes, Link } from "react-router-dom"
+import { useState } from "react"
 
 const App = () => {
+
+  const api = 'https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api'
+
+  const [token, setToken] = useState('');
 
   return (
     <>
@@ -21,12 +26,12 @@ const App = () => {
 
       <Routes>
         <Route path='/' element={<Home />}/>
-        <Route path='/books' element={<Books />}/>
-        <Route path='/account' element={<Account />}/>
-        <Route path='/login' element={<Login />}/>
-        <Route path='/Register' element={<Register />}/>
+        <Route path='/books' element={<Books api={api}/>}/>
+        <Route path='/account' element={<Account api={api}/>}/>
+        <Route path='/login' element={<Login api={api}/>}/>
+        <Route path='/Register' element={<Register api={api} setToken={setToken} token={token}/>}/>
         {/* <Route path='/BookDetails' element={<BookDetails />}/> */}
-      </Routes>      
+      </Routes>
     </>
   )
 }
