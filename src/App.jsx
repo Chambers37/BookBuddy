@@ -1,8 +1,9 @@
 import Books from "./components/Books"
 import Home from "./components/Home"
-import Auth from "./components/Auth"
+import Login from "./components/Login"
+import Register from "./components/Register"
 import Account from "./components/Account"
-import BookDetails from "./components/BookDetails"
+// import BookDetails from "./components/BookDetails"
 import { Route, Routes, Link } from "react-router-dom"
 
 const App = () => {
@@ -13,16 +14,18 @@ const App = () => {
         <Link to='/'>Home</Link> <br/>
         <Link to='/books'>All Books</Link><br/>
         <Link to='/Account'>My Account</Link><br/>
-        <Link to='/Auth'>Login/Register</Link> <br />
-        <Link to='/bookdetails'>Book Details</Link>
+        <Link to='/login'>Login</Link> <br />
+        <Link to='/Register'>Register</Link> <br />
+        {/* <Link to='/bookdetails'>Book Details</Link> */}
       </nav>
 
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/books' element={<Books />}/>
         <Route path='/account' element={<Account />}/>
-        <Route path='/auth' element={<Auth />}/>
-        <Route path='/BookDetails' element={<BookDetails />}/>
+        <Route path='/login' element={<Login />}/>
+        <Route path='/Register' element={<Register />}/>
+        {/* <Route path='/BookDetails' element={<BookDetails />}/> */}
       </Routes>      
     </>
   )
