@@ -7,7 +7,7 @@
 - ## Functionality Requirements
   - Routes via React Router (This is a minimum; you could have more than just these routes. These routes may be named as you wish.)
     - ~~/books - this could be the home page; this component should show all books in the library’s catalog~~
-    - /books/:id  - this component should display details of an individual book
+    - ~~/books/:id  - this component should display details of an individual book~~
     - ~~/login and /register or /auth if you want to do both in one view~~
     - /account  - this component should show, at minimum:
       - ~~Username or email of logged in user~~
@@ -23,12 +23,12 @@
     - Check out an available book
     - Return books they have currently checked out
     - ~~View their account page and currently checked-out books~~
-  - Authenticated Users should not be able to:
+  - ~~Authenticated Users should not be able to:~~
     - ~~View the accounts of users other than themselves~~
     - ~~Checkout / Return books for other users~~
-  - All users should be able to:
+  - ~~All users should be able to:~~
     - ~~View a list of all the library's books~~
-    - View details of an individual book
+    - ~~View details of an individual book~~
 
 - ## Implementation Requirements
   - Javascript Basics

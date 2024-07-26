@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState,  } from "react"
+import { useNavigate } from "react-router-dom"
 
 
 
 const Books = ({ api }) => {
 
   const [books, setBooks] = useState([])
+
+  const navigate = useNavigate();
 
   useEffect(() => {
 
@@ -24,12 +27,11 @@ const Books = ({ api }) => {
     <>
 
       <h2>Books</h2>
-      {console.log(books)}
       
       {
         books.map((book) => {
           return (
-            <div key={book.id}>
+            <div key={book.id} onClick={() => {navigate(`/books/${book.id}`)}}>
               <p>{book.title}</p>
               <img src={book.coverimage} height="100px"/>
             </div>
