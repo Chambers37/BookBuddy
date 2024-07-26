@@ -3,6 +3,7 @@ import Home from "./components/Home"
 import Login from "./components/Login"
 import Register from "./components/Register"
 import Account from "./components/Account"
+import BookDetails from "./components/BookDetails"
 import { Route, Routes, Link } from "react-router-dom"
 import { useState } from "react"
 
@@ -36,6 +37,8 @@ const App = () => {
         <Route path='/' element={<Home />}/>
 
         <Route path='/books' element={<Books api={api}/>}/>
+        
+        <Route path='/books/:id' element={<BookDetails api={api}/>}/>
 
         <Route path='/account' element={<Account api={api} token={token} newUser={newUser} setNewUser={setNewUser}/>}/>
 
