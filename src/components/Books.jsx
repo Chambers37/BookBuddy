@@ -24,13 +24,19 @@ const Books = ({ api }) => {
     <>
 
       <h2>Books</h2>
-      <ul>
+      {console.log(books)}
+      
       {
         books.map((book) => {
-          return <li key={book.id}>{book.title}</li>
+          return (
+            <div key={book.id}>
+              <p>{book.title}</p>
+              <img src={book.coverimage} height="100px"/>
+            </div>
+            )
         })
       }
-      </ul>
+      
     </>
   )
 }

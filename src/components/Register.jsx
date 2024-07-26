@@ -27,6 +27,10 @@ const Register = ({ api, setToken }) => {
         const postResponse = await response.json()
         setNewUser(postResponse)
         setToken(postResponse.token)
+        setEmail('')
+        setFirstname('')
+        setLastname('')
+        setPassword('')
         
       } catch (error) {
         console.log(error.message)
@@ -90,7 +94,11 @@ const Register = ({ api, setToken }) => {
           </input>
         </label> <br />
         <button type="submit">Register</button> 
-      </form>   
+      </form>
+      {console.log(newUser)}
+      {
+        newUser.token ? <p>You have successfully registered!</p> : null
+      }
     </>
   )
 }

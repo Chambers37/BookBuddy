@@ -1,16 +1,32 @@
 import { useState } from "react"
 
 
-const Login = () => {
-  const [username, setUsername] = useState('');
+const Login = ({ api, setToken, token }) => {
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [newUser, setNewUser] = useState({});
 
-  const handleSubmit = (submit) => {
+  const handleSubmit = async (submit) => {
     submit.preventDefault();
-    
-    console.log(`Form Submitted: 
-      Username: ${username}
-      Password : ${password}`)
+
+      try {
+        const response = await fetch(`${api}/users/login`, {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: email,
+            password: password
+          })
+        })
+        const postResponse = await response.json()
+        setNewUser(postResponse)
+        setToken(postResponse.token)
+        
+      } catch (error) {
+        console.log(error.message)
+      }
     
   }
 
@@ -20,13 +36,14 @@ const Login = () => {
     <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <label>
-          Username: 
+          Email: 
           <input 
-          value={username} 
-          placeholder="Enter Username Here" 
+          value={email} 
+          placeholder="Enter Email Here" 
           required 
+          type="email"
           onChange={(e) => {
-            setUsername(e.target.value)
+            setEmail(e.target.value)
           }}
           >
           </input>
@@ -46,6 +63,9 @@ const Login = () => {
         </label> <br />
         <button type="submit">Login</button> 
       </form>
+      {
+        token ? <p>You are now logged in!</p> : null
+      }
     </>
   )
 }
