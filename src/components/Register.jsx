@@ -1,12 +1,11 @@
 import { useState } from "react"
 
 
-const Register = ({ api, setToken }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const Register = ({ api, setToken, newUser, setNewUser, email, setEmail, password, setPassword }) => {
+  
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
-  const [newUser, setNewUser] = useState({});
+  
 
   const handleSubmit = async (submit) => {
     submit.preventDefault();
@@ -25,7 +24,7 @@ const Register = ({ api, setToken }) => {
           })
         })
         const postResponse = await response.json()
-        setNewUser(postResponse)
+        setNewUser(postResponse.user)
         setToken(postResponse.token)
         setEmail('')
         setFirstname('')
@@ -40,8 +39,10 @@ const Register = ({ api, setToken }) => {
 
 
   return (
-    <>
-    <h1>Register</h1>
+    <> 
+        
+        
+      <h1>Register</h1>
       <form onSubmit={handleSubmit}>
       <label>
           First name: 
@@ -97,8 +98,10 @@ const Register = ({ api, setToken }) => {
       </form>
       {console.log(newUser)}
       {
-        newUser.token ? <p>You have successfully registered!</p> : null
+        newUser.id ? <p>You have successfully registered!</p> : null
       }
+      
+    
     </>
   )
 }

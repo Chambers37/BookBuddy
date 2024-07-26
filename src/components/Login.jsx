@@ -1,10 +1,6 @@
-import { useState } from "react"
 
-
-const Login = ({ api, setToken, token }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [newUser, setNewUser] = useState({});
+const Login = ({ api, setToken, token, email, setEmail, password, setPassword }) => {
+  
 
   const handleSubmit = async (submit) => {
     submit.preventDefault();
@@ -21,9 +17,12 @@ const Login = ({ api, setToken, token }) => {
           })
         })
         const postResponse = await response.json()
-        setNewUser(postResponse)
-        setToken(postResponse.token)
         
+        setToken(postResponse.token)
+        console.log('Login post response', postResponse)
+        setEmail('')
+        setPassword('')
+
       } catch (error) {
         console.log(error.message)
       }

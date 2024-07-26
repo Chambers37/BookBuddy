@@ -8,26 +8,26 @@
   - Routes via React Router (This is a minimum; you could have more than just these routes. These routes may be named as you wish.)
     - ~~/books - this could be the home page; this component should show all books in the library’s catalog~~
     - /books/:id  - this component should display details of an individual book
-    - /login and /register or /auth if you want to do both in one view
+    - ~~/login and /register or /auth if you want to do both in one view~~
     - /account  - this component should show, at minimum:
-      - Username or email of logged in user
+      - ~~Username or email of logged in user~~
       - List of all books a user has checked out (or a message indicating they have 0 books checked out if applicable)
-  - Unauthenticated Users should be able to:
-    - Observe a list of all the books in the library
-    - Sign up for an account with a username and password.
-    - Sign in using the correct username/password combination.
-  - Unauthenticated Users should not be able to:
-    - Check out or return any book
-    - See the account page of any user
+  - ~~Unauthenticated Users should be able to:~~
+    - ~~Observe a list of all the books in the library~~
+    - ~~Sign up for an account with a username and password.~~
+    - ~~Sign in using the correct username/password combination.~~
+  - ~~Unauthenticated Users should not be able to:~~
+    - ~~Check out or return any book~~
+    - ~~See the account page of any user~~
   - Authenticated Users should be able to:
     - Check out an available book
     - Return books they have currently checked out
-    - View their account page and currently checked-out books
+    - ~~View their account page and currently checked-out books~~
   - Authenticated Users should not be able to:
-    - View the accounts of users other than themselves
-    - Checkout / Return books for other users
+    - ~~View the accounts of users other than themselves~~
+    - ~~Checkout / Return books for other users~~
   - All users should be able to:
-    - View a list of all the library's books
+    - ~~View a list of all the library's books~~
     - View details of an individual book
 
 - ## Implementation Requirements
