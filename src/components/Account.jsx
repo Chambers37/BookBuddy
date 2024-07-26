@@ -1,8 +1,12 @@
 
 
-const Account = () => {
+const Account = ({ token }) => {
   return (
-    <h2>Account</h2>
+    <>
+      {
+        token ? <h2>Here is your account info!</h2> : <h2>You must login first!</h2>
+      }
+    </>
   )
 }
 
