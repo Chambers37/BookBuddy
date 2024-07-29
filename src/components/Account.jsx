@@ -27,8 +27,6 @@ const Account = ({ token, api, newUser, setNewUser, checkedOut, setCheckedOut })
           available: true,
         })
       })
-      const book = await response.json();
-      console.log(book);
     
       setCheckedOut((currentlyOut) => currentlyOut.filter((book) => book.id !== id))
     }

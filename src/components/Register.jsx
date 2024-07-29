@@ -92,7 +92,6 @@ const Register = ({ api, setToken, newUser, setNewUser, email, setEmail, passwor
         </label> <br />
         <button type="submit">Register</button> 
       </form>
-      {console.log(newUser)}
       {
         newUser.id ? <p>You have successfully registered!</p> : null
       }

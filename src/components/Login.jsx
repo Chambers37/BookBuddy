@@ -22,7 +22,6 @@ const Login = ({ api, setToken, token, email, setEmail, password, setPassword })
         const postResponse = await response.json()
         
         setToken(postResponse.token)
-        console.log('Login post response', postResponse)
         setEmail('')
         setPassword('')
 

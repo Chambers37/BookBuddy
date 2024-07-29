@@ -20,7 +20,6 @@ const handleCheckout = async () => {
     })
   })
   const book = await response.json();
-  console.log(book.book);
 
   setBook(book.book)
   setCheckedOut((currentlyOut) => [...currentlyOut, book.book])
@@ -41,8 +40,7 @@ const handleCheckout = async () => {
   
   return (
     <>
-      {
-      console.log('Get Details Response:', book)}
+      
       <div id="book-details">
         <h1>{book.title}</h1>
         <h4> By: {book.author}</h4>
