@@ -55,7 +55,7 @@ const Account = ({ token, api, newUser, setNewUser, checkedOut, setCheckedOut })
           </div>
         </div>
 
-        : <h2>You must login first!</h2>
+        : <h1>You must login first!</h1>
       }
     </>
   )
