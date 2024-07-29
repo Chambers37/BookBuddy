@@ -1,5 +1,8 @@
+import { useNavigate } from "react-router-dom";
 
 const Login = ({ api, setToken, token, email, setEmail, password, setPassword }) => {
+
+  const navigate = useNavigate();
   
 
   const handleSubmit = async (submit) => {
@@ -31,14 +34,13 @@ const Login = ({ api, setToken, token, email, setEmail, password, setPassword })
 
 
   return (
-    <>
+    <div id="login-form">
     <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <label>
           Email: 
           <input 
           value={email} 
-          placeholder="Enter Email Here" 
           required 
           type="email"
           onChange={(e) => {
@@ -46,12 +48,11 @@ const Login = ({ api, setToken, token, email, setEmail, password, setPassword })
           }}
           >
           </input>
-        </label> <br />
+        </label> 
         <label>
           Password: 
           <input 
           value={password} 
-          placeholder="Enter Password Here" 
           required 
           type="password"
           onChange={(e) => {
@@ -59,13 +60,14 @@ const Login = ({ api, setToken, token, email, setEmail, password, setPassword })
           }}
           >
           </input>
-        </label> <br />
-        <button type="submit">Login</button> 
+        </label> 
+        <button type="submit">Login</button>
+        <button type="button" onClick={() => {navigate('/register')}}>New User?</button>
       </form>
       {
-        token ? <p>You are now logged in!</p> : null
+        token ? <p>You have succesfully logged in!</p> : null
       }
-    </>
+    </div>
   )
 }
 

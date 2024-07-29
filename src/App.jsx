@@ -15,19 +15,20 @@ const App = () => {
   const [password, setPassword] = useState('');
   const [token, setToken] = useState('');
   const [newUser, setNewUser] = useState({});
+  const [checkedOut, setCheckedOut] = useState([])
 
   return (
     <>
       <nav>
-        <Link to='/'>Home</Link> <br/>
-        <Link to='/books'>All Books</Link><br/>
+        <Link to='/'>Home</Link> 
+        <Link to='/books'>All Books</Link>
         {
-        token ? <><Link to='/Account'>My Account</Link><br/></> : null
+        token ? <><Link to='/Account'>My Account</Link></> : null
         }
         { 
         token ? null : 
           <>
-            <Link to='/login'>Login</Link> <br />
+            <Link to='/login'>Login</Link>
             <Link to='/Register'>Register</Link>
           </>
         }
@@ -36,11 +37,11 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />}/>
 
-        <Route path='/books' element={<Books api={api}/>}/>
+        <Route path='/books' element={<Books api={api} token={token}/>}/>
         
-        <Route path='/books/:id' element={<BookDetails api={api}/>}/>
+        <Route path='/books/:id' element={<BookDetails api={api} token={token} setCheckedOut={setCheckedOut}/>}/>
 
-        <Route path='/account' element={<Account api={api} token={token} newUser={newUser} setNewUser={setNewUser}/>}/>
+        <Route path='/account' element={<Account api={api} token={token} newUser={newUser} setNewUser={setNewUser} checkedOut={checkedOut} setCheckedOut={setCheckedOut}/>}/>
 
         <Route path='/login' element={<Login email={email} setEmail={setEmail} password={password} setPassword={setPassword} api={api} setToken={setToken} token={token} newUser={newUser} setNewUser={setNewUser}/>}/>
 

@@ -39,7 +39,7 @@ const Register = ({ api, setToken, newUser, setNewUser, email, setEmail, passwor
 
 
   return (
-    <> 
+    <div id="register-form"> 
         
         
       <h1>Register</h1>
@@ -48,7 +48,6 @@ const Register = ({ api, setToken, newUser, setNewUser, email, setEmail, passwor
           First name: 
           <input 
           value={firstname} 
-          placeholder="Enter Fist Name Here" 
           required 
           onChange={(e) => {
             setFirstname(e.target.value)
@@ -60,7 +59,6 @@ const Register = ({ api, setToken, newUser, setNewUser, email, setEmail, passwor
           Last name: 
           <input 
           value={lastname} 
-          placeholder="Enter Last Name Here" 
           required 
           onChange={(e) => {
             setLastname(e.target.value)
@@ -72,7 +70,6 @@ const Register = ({ api, setToken, newUser, setNewUser, email, setEmail, passwor
           Email: 
           <input 
           value={email} 
-          placeholder="Enter Email Here" 
           type="email"
           required 
           onChange={(e) => {
@@ -85,7 +82,6 @@ const Register = ({ api, setToken, newUser, setNewUser, email, setEmail, passwor
           Password: 
           <input 
           value={password} 
-          placeholder="Enter Password Here" 
           required 
           type="password"
           onChange={(e) => {
@@ -102,7 +98,7 @@ const Register = ({ api, setToken, newUser, setNewUser, email, setEmail, passwor
       }
       
     
-    </>
+    </div>
   )
 }
 

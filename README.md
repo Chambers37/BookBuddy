@@ -11,7 +11,7 @@
     - ~~/login and /register or /auth if you want to do both in one view~~
     - /account  - this component should show, at minimum:
       - ~~Username or email of logged in user~~
-      - List of all books a user has checked out (or a message indicating they have 0 books checked out if applicable)
+      - ~~List of all books a user has checked out (or a message indicating they have 0 books checked out if applicable)~~
   - ~~Unauthenticated Users should be able to:~~
     - ~~Observe a list of all the books in the library~~
     - ~~Sign up for an account with a username and password.~~
@@ -19,9 +19,9 @@
   - ~~Unauthenticated Users should not be able to:~~
     - ~~Check out or return any book~~
     - ~~See the account page of any user~~
-  - Authenticated Users should be able to:
-    - Check out an available book
-    - Return books they have currently checked out
+  - ~~Authenticated Users should be able to:~~
+    - ~~Check out an available book~~
+    - ~~Return books they have currently checked out~~
     - ~~View their account page and currently checked-out books~~
   - ~~Authenticated Users should not be able to:~~
     - ~~View the accounts of users other than themselves~~

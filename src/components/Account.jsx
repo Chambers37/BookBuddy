@@ -1,6 +1,6 @@
 
 
-const Account = ({ token, api, newUser, setNewUser }) => {
+const Account = ({ token, api, newUser, setNewUser, checkedOut, setCheckedOut }) => {
 
     const getData = async () => {
       const response = await fetch(`${api}/users/me`, {
@@ -16,16 +16,44 @@ const Account = ({ token, api, newUser, setNewUser }) => {
     }
      token ? getData() : null
 
+     const handleReturn = async (id) => {
+      const response = await fetch(`${api}/books/${id}`, {
+        method: "PATCH",
+        headers: {
+          'Content-Type':'application/json',
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          available: true,
+        })
+      })
+      const book = await response.json();
+      console.log(book);
+    
+      setCheckedOut((currentlyOut) => currentlyOut.filter((book) => book.id !== id))
+    }
+
   return (
     <>
       {
         token ? 
         
-        <div>
-          <h1>Here is your account info!</h1> 
-          <p>Email: {newUser.email}</p>
+        <div id="account-details">
+          <h1>Your account info</h1> 
+          <p><b>Email:</b> {newUser.email}</p>
           <div>
-            <h2>These are the books you currently have checked out</h2>
+            {checkedOut.length === 0 ? <h2>You do not have any books checked out!</h2>: <h2>These are the books you currently have checked out</h2>}
+            {
+            checkedOut.map((book) => {
+              return (
+                <div key={book.id} className="checkedoutBooks">
+                  <h4>{book.title}</h4>
+                  <img src={book.coverimage} height='150px'/> <br />
+                  <button onClick={() => {handleReturn(book.id)}}>Return Book</button>
+                </div>
+              )
+            })
+            }
           </div>
         </div>
 

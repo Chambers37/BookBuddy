@@ -1,7 +1,9 @@
 
 const Home = () => {
   return (
-    <h2>Home</h2>
+    <div id="home-background">
+      <h1 id="home-heading">Welcome to the Book Buddy Library!</h1>
+    </div>
   )
 }
 
